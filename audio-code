@@ -1,0 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <string.h>
+#include <unistd.h>
+#include <fcntl.h>
+#include <sys/types.h>
+#include <sys/stat.h>
+#include <errno.h>
+
+#define AUDIO_FILE "audio_message.wav"
+
+void record_audio() {
+    // Command to record audio using arecord
+    char command[256];
+    snprintf(command, sizeof(command), "arecord -f cd -t wav -d 10 -r 44100 %s", AUDIO_FILE);
+    system(command);
+}
+
+void send_audio() {
+    // Command to send audio via WhatsApp (assuming WhatsApp Web is open)
+    char command[256];
+    snprintf(command, sizeof(command), "xdotool type '%s' && xdotool key Return", AUDIO_FILE);
+    system(command);
+}
+
+int main() {
+    printf("Recording audio message...\n");
+    record_audio();
+    printf("Audio message recorded: %s\n", AUDIO_FILE);
+    
+    printf("Sending audio message via WhatsApp...\n");
+    send_audio();
+    
+    return 0;
+}
+
