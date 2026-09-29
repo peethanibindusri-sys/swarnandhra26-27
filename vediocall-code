@@ -1,0 +1,24 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int main() {
+    printf("Video Call Feature for WhatsApp Application\n");
+    // Initialize video call
+    // Connect to the server
+    // Set up video and audio streams
+    // Handle user interface for video call
+    // Manage call states (connecting, in call, ended)
+    
+    // Placeholder for video call logic
+    printf("Starting video call...\n");
+    
+    // Simulate video call process
+    for (int i = 0; i < 5; i++) {
+        printf("In call... %d seconds\n", i + 1);
+        sleep(1); // Simulate time passing
+    }
+    
+    printf("Video call ended.\n");
+    return 0;
+}
+
